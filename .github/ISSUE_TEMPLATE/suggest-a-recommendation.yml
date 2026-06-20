@@ -1,0 +1,28 @@
+name: Suggest a recommendation / correction
+description: Propose a better approach, an alternative, or a factual fix.
+title: "[Suggestion]: "
+labels: ["recommendation"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type
+      options:
+        - Better approach / alternative
+        - Factual correction
+        - New topic to cover
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Which page/topic?
+      description: Path or title this applies to (or "new").
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Your recommendation
+    validations:
+      required: true

@@ -1,0 +1,43 @@
+name: Share a gotcha / lesson
+description: A hard-won lesson others should know — generalized, no private details.
+title: "[Gotcha]: "
+labels: ["gotcha"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing! Keep it **principle-level** — no IPs, hostnames, or exact model→input maps. Bar: *would this help a stranger with a different house?*
+  - type: input
+    id: tldr
+    attributes:
+      label: TL;DR
+      description: The general rule in one sentence.
+    validations:
+      required: true
+  - type: textarea
+    id: situation
+    attributes:
+      label: The situation
+      description: The generalized scenario (no specific gear/IPs).
+    validations:
+      required: true
+  - type: textarea
+    id: what-bit
+    attributes:
+      label: What bit you
+      description: The failure, described generally.
+    validations:
+      required: true
+  - type: textarea
+    id: rule
+    attributes:
+      label: The general rule & how to apply it
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Credit line (optional)
+      description: How you'd like to be credited, e.g. a handle.
+    validations:
+      required: false

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Open-ended question / discussion
+    url: https://github.com/sjmotew/c4_2_HA/discussions
+    about: For "how did you handle X" conversations that aren't a specific gotcha or suggestion.
