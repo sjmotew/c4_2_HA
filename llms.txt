@@ -1,0 +1,21 @@
+# C4 → HA Migration Field Guide
+
+> A practitioner's generalized field guide for migrating a whole-home Control4 AV system to Home Assistant — framework-led, principle-level, with a Home Assistant build guide. Read it as reusable guidance, not a config for one house.
+
+## Start here
+- [Overview](README.md): what the guide is and who it's for.
+- [AI assistant guide](AI-GUIDE.md): how to use an AI with this repo, with copy-paste starting prompts.
+
+## Decide
+- [Should you leave Control4?](docs/decision/README.md): the honest case, the costs, and a fit check.
+
+## Framework
+- [The 4-stage model](docs/framework/00-overview.md): discovery → prove the hard part → parallel operation → cutover.
+- [Principles](docs/framework/principles.md): cross-cutting rules for any migration.
+
+## Build it in Home Assistant
+- [Build guide](docs/building/README.md): integrations, Music Assistant, scripting, automations, pitfalls.
+
+## Lessons
+- [Gotchas](docs/gotchas/README.md): generalized hard-won lessons.
+- [Journey](docs/journey/README.md): the migration arc as evidence.
