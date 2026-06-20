@@ -13,20 +13,21 @@ Most people start a migration doc on day one, get three zones in, and never come
 There are two ways into this guide, depending on where you are:
 
 - **Deciding whether to leave Control4?** Start with the decision layer → [`docs/decision/`](docs/decision/). It walks the honest tradeoffs before you spend a dollar or pull a single zone.
-- **Already migrating?** Go straight to the framework and the lessons → [`docs/framework/`](docs/framework/) and [`docs/gotchas/`](docs/gotchas/). The framework gives you the sequence; the gotchas keep you from re-learning things the hard way.
+- **Already migrating?** Go straight to the framework, the build guide, and the lessons → [`docs/framework/`](docs/framework/), [`docs/building/`](docs/building/), and [`docs/gotchas/`](docs/gotchas/). The framework gives you the sequence; the build guide shows how to do it well in Home Assistant; the gotchas keep you from re-learning things the hard way.
 
 ## Map of the repo
 
 - [`docs/decision/`](docs/decision/) — Should you leave Control4 at all? Tradeoffs, what you're signing up for, and a readiness self-check.
 - [`docs/framework/`](docs/framework/) — The repeatable 4-stage migration model plus the cross-cutting principles that hold across every house.
+- [`docs/building/`](docs/building/) — Building it well in Home Assistant: integrations, Music Assistant, scripting, automations, and platform pitfalls — with small illustrative snippets.
 - [`docs/gotchas/`](docs/gotchas/) — A growing catalog of hard-won, generalized lessons: the failures, the rules they taught me, and how to apply them.
 - [`docs/journey/`](docs/journey/) — The actual arc of one migration, compressed — proof the framework came from doing, not theorizing.
 
-New here? The one-screen router lives at [`docs/00-start-here.md`](docs/00-start-here.md).
+New here? The one-screen router lives at [`docs/00-start-here.md`](docs/00-start-here.md). Pointing an AI assistant at this repo? See [`AI-GUIDE.md`](AI-GUIDE.md).
 
 ## How this is written
 
-Framework-first, journey-as-evidence. The principles lead; the story exists to show they were earned. Everything is **principle-level** — no copy-paste configuration, no exact device-to-input maps, no "do this and you're done." Your house is wired differently from mine, your gear is different, and your family's tolerance for a dark living room is different. The point is to teach you how to think about the migration so you can make the right call for your setup.
+Framework-first, journey-as-evidence. The principles lead; the story exists to show they were earned. Most of this guide is **principle-level** — no exact device-to-input maps, no "do this and you're done." The Home Assistant [build guide](docs/building/) goes more concrete, with small *illustrative* snippets that show the shape (generic placeholders, not copy-paste configs for your house). Your house is wired differently from mine, your gear is different, and your family's tolerance for a dark living room is different. The point is to teach you how to think about the migration so you can make the right call for your setup.
 
 ## Contribute your experience
 

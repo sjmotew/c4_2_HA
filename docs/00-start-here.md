@@ -23,6 +23,10 @@ The whole migration fits a repeatable 4-stage model. One line each:
 
 The full model and the principles behind it → [`framework/`](framework/).
 
+## Building it in Home Assistant
+
+Ready to build it well, not just working? The build guide covers integrations, Music Assistant, scripting, automations, and the platform pitfalls — with small illustrative snippets → [`building/`](building/).
+
 ## When something bites you
 
 It will. The catalog of generalized, hard-won lessons — the failures and the rules they taught — lives here → [`gotchas/`](gotchas/).

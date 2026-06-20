@@ -32,6 +32,14 @@ Everything published here has to work for a stranger with a different house. The
 - **Principle-level phrasing.** Brand names are fine only as neutral illustrative examples ("an AVR such as one of the common brands"), never as part of a specific config or mapping.
 - **The bar:** *would this help a stranger with a different house?* If the answer needs your specific setup to make sense, generalize it until it doesn't.
 
+### Illustrative snippets
+
+The Home Assistant build guide (`docs/building/`) is the one place small config snippets are allowed. They must be **illustrative, not copy-paste**:
+
+- Use generic placeholder entities only (`media_player.kitchen`, `media_player.living_room_avr`) — never real entity IDs, device models, or input maps.
+- No IPs, hostnames, or anything identifying.
+- Keep them minimal — the smallest fragment that shows the pattern — and label them illustrative.
+
 ## Tone
 
 Honest, practitioner-to-practitioner. Say what actually went wrong and what you'd do differently. No vendor bashing — the goal is to help people decide and migrate well, not to settle scores.
