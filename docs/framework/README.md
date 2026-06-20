@@ -9,9 +9,9 @@ Start here:
 
 The stages, in depth:
 
-- [Stage 1 — Discovery & inventory](01-discovery-and-inventory.md) *(drafting)*
-- [Stage 2 — Prove the hard part first](02-prove-the-hard-part-first.md) *(drafting)*
-- [Stage 3 — Parallel operation](03-parallel-operation.md) *(drafting)*
-- [Stage 4 — Cutover & decommission](04-cutover-and-decommission.md) *(drafting)*
+- [Stage 1 — Discovery & inventory](01-discovery-and-inventory.md)
+- [Stage 2 — Prove the hard part first](02-prove-the-hard-part-first.md)
+- [Stage 3 — Parallel operation](03-parallel-operation.md)
+- [Stage 4 — Cutover & decommission](04-cutover-and-decommission.md)
 
 When something bites you mid-migration, the [gotchas](../gotchas/) are the field dressing.
