@@ -10,6 +10,7 @@ Unlike the rest of the guide, the pages here include small config snippets. They
 
 ## In this section
 
+- [**Architecture**](architecture.md) — the one decision that keeps the build from becoming spaghetti: separate *what's playing* from *where it plays*, joined by a dispatcher over explicit shared state. Read this first.
 - [**Integrations**](integrations.md) — choosing integrations that age well, fronting devices with readable wrapper entities, and when to drop down to the raw device instead.
 - [**Music Assistant**](music-assistant.md) — using one streaming engine as the backbone that fans out to every zone, instead of a different mechanism per service.
 - [**Scripting**](scripting.md) — composable, idempotent, name-based scripts that stay readable and don't fight your own taps.
