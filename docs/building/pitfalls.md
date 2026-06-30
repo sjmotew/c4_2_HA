@@ -32,6 +32,30 @@ These are cross-cutting Home Assistant platform gotchas — the ones that aren't
 
 **The fix:** understand your include strategy (how files are merged, whether keys must be unique), and **keep ids unique** across included files. When in doubt, simplify the structure until the behavior is obvious.
 
+## Keep a per-device "do-not-retry" list
+
+**What bites you:** a stubborn device accumulates a dozen dead ends — wrong input keys, a service that 500s, an API that doesn't exist, a cloud path that's flaky — and months later you (or your AI assistant) cheerfully re-test the same broken approaches because nobody wrote them down.
+
+**The fix:** maintain a durable, dated list of what *doesn't* work for each difficult device, alongside what does. It's the single artifact that makes a stubborn device tractable, and it compounds: every dead end you record is days you never spend re-walking.
+
+## Power down sources before displays
+
+**What bites you:** an "all off" that kills the displays first, then the source devices — and a streaming box's CEC "active source" signal promptly wakes the displays right back up. The house won't stay off.
+
+**The fix:** order teardown **upstream to downstream** — sleep the *source* devices first (so nothing is left asserting "active source"), let it settle, then power off the displays last. The same CEC behavior that fights you in the wrong order is harmless in the right one.
+
+## Trust the management UI over the labels
+
+**What bites you:** you automate an IP-controlled power outlet by the number on its sticker — and the management UI numbers them differently, so you reboot the wrong piece of core AV gear.
+
+**The fix:** map each switched outlet to its real device through the controller's own UI before automating power, and trust that mapping over the physical labels. Confirm by switching one outlet and watching what actually changes.
+
+## The one undocumented feed
+
+**What bites you:** at cutover, a matrix input or a display goes dark because the *old controller itself* was quietly feeding it — content nobody had documented.
+
+**The fix:** during discovery, hunt for any feed sourced by the legacy controller and decide its fate deliberately — migrate it or accept the loss on purpose — rather than discovering it the hard way. The [power-off test](../gotchas/power-off-test-the-old-controller.md) is how you flush these out early.
+
 ## See also
 
 - [Principles](../framework/principles.md) — especially one source of truth.

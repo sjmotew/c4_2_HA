@@ -36,14 +36,48 @@ Wrappers aren't free of leaks. Sometimes a proxy or wrapper entity **misbehaves 
 
 The skill is knowing both exist and reaching for the right one: wrapper for the clean, common case; raw for the specific call the wrapper can't carry.
 
+## Same brand isn't same capability
+
+Two devices from one vendor — even sharing a single integration — can expose different capabilities. A call that works on one (`play_media` on a model with a streaming stack) can hard-error on its sibling that lacks it. And numbered multi-zone entities don't tell you which physical room they actually drive. Verify each device's real capabilities by walkthrough, and wrap each in a room-named entity, rather than assuming the integration treats them alike.
+
+## Give one integration ownership of each device
+
+When a streaming engine and a native integration both want the same device, they can starve each other — the device allows only so many control sessions, and a contested one drops to *unavailable*. Pick one owner per device and disable the player on the other layer. This matters enough to be its own lesson: [one control authority per device](../gotchas/one-control-authority-per-device.md).
+
+## Prefer local control; cloud is a reliability tax
+
+A device API that "works when the cloud is up" is not acceptable for daily home automation — outages, expired tokens, rate limits, and devices that randomly appear offline will all eventually ruin an evening. When a device offers a local control path, invest in it even when it's harder than the cloud one. Treat cloud control as a last resort, never as the path for anything reliability-critical.
+
+## When a device fights you, add a side channel
+
+Some devices resist clean control: a vendor "turn on" that's deprecated on one unit but fine on another, a wake that only half-works, a power-off that drops the network card for a minute. The durable answer is often a **second, independent control path**:
+
+- **Harden unreliable wakes** — send wake-on-LAN as a short repeat burst rather than a single packet, and add a keep-alive that re-sends it if the device goes `unavailable for:` a window during waking hours, so its network card never drifts into a standby that the next wake can't escape.
+- **Drop to a local side channel** — where network control is flaky, a small dedicated node driving the device over its serial/IR control port can expose *discrete, idempotent* commands ("input HDMI 1," "art mode on") that force a known state from any starting point. A side channel survives a dead network stack.
+
+Treat HDMI-CEC as a *helpful side effect*, never the primary mechanism — it may wake a display as a bonus, but don't build your input selection on it.
+
+## Re-adding an integration can renumber your entities
+
+Some integrations have no reconfigure flow — to re-point them you must delete and re-add. The trap: a stale registry entry left behind causes the re-added device to come back with a suffixed entity_id (`..._2`), silently breaking every script that referenced the original. Before re-adding, **purge the orphaned entities and devices**, then verify the id came back un-suffixed. (Migrating the integration's data directory, where it has one, preserves the underlying player IDs across the move.)
+
+## Decouple long-lived services from the hub
+
+If a streaming engine or similar service runs *inside* your hub, their lifecycles are coupled — a hub restart or engine update takes both down together. Running it as its own standalone service decouples them, survives hub restarts independently, and tends to be the prerequisite for later scaling work.
+
 ## Pitfalls
 
 - **Adopting an unmaintained custom integration** because it demoed well. Check its pulse first.
 - **Automating against a wrapper that silently fails** for some actions — you'll debug the automation when the problem is the abstraction.
 - **Assuming an integration exposes every capability** the device has. It often doesn't; confirm the action you need actually exists before you design around it.
+- **Assuming sibling devices behave alike** — same brand, different capability.
+- **Building on cloud control** for anything that has to work every day.
+- **Re-adding an integration without purging orphans first** — suffixed entity_ids break every reference.
 
 ## See also
 
 - [Principles](../framework/principles.md) — human-readable names, one source of truth.
+- [Architecture](architecture.md) — where these devices sit in the source and room layers.
 - [Stage 1 — Discovery & inventory](../framework/01-discovery-and-inventory.md) — you choose integrations against the inventory you built.
+- Gotchas: [one control authority per device](../gotchas/one-control-authority-per-device.md), [device status codes can lie](../gotchas/device-status-codes-can-lie.md).
 - [Pitfalls](pitfalls.md) — cross-cutting HA platform gotchas.
