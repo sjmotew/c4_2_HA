@@ -10,5 +10,8 @@ Each lesson follows the same shape — TL;DR, the situation, what bit me, the ge
 | Idempotent commands | Every command should be safe to send twice; check state first and prefer discrete commands over toggles. | [Read](idempotent-commands.md) |
 | Prove the riskiest integration first | The one integration nobody has a clean path for sets your whole timeline — isolate and prove it before planning the rest. | [Read](prove-the-riskiest-integration-first.md) |
 | Migrate in parallel, never big-bang | Keep the old system live, move one zone at a time, always have a same-day rollback — the family is your acceptance test. | [Read](migrate-in-parallel-never-big-bang.md) |
+| Power-off test the old controller | The legacy hub is usually an orchestrator, not a signal router — prove it by pulling power and watching what goes dark, before you plan removal. | [Read](power-off-test-the-old-controller.md) |
+| One control authority per device | Two controllers or two grouping planes fighting over one device silently break volume and availability — give each device exactly one owner. | [Read](one-control-authority-per-device.md) |
+| Device status codes can lie | A device's protocol owns the meaning of its status codes — a `401` may mean "malformed command," not "wrong password." Verify against its own spec. | [Read](device-status-codes-can-lie.md) |
 
 More are coming as the migration behind this guide gets written up — and as others contribute theirs. Got a hard-won lesson? [Add yours](../../CONTRIBUTING.md).
