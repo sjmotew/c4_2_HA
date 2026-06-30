@@ -11,6 +11,14 @@ Here's the actual arc, compressed — proof the framework came from a real migra
 | Parallel operation | Ran the old system and the new one side by side, migrating one zone at a time, and kept a same-day rollback ready for every move. The house stayed fully usable the entire time. | Nobody at home should be able to tell a migration is happening. Per-zone moves with instant rollback made the whole thing boring — which, for the people who actually live in the house, is exactly the goal. |
 | Cutover & decommission | Retired the old system only after the new one owned every zone and had quietly run them for a while with no complaints. Kept a short list of things worth preserving; let the rest go. | "Done" isn't when the new system works — it's when the old one can leave without anyone noticing. Earning that confidence took patience, and rushing it would have undone all the trust built in the parallel phase. |
 
+## Decisions that shaped it
+
+A few choices did more than their share of the work, and they're worth lifting out of the timeline:
+
+- **A status-coded signal-path matrix as the single source of truth.** Every zone's source → path → amp → speaker chain went into one living document, each entry tagged *confirmed*, *legacy-dependent*, *unused*, or *migration-ready*. The rule that made it useful: an "unknown" is a blocker, and you don't cut over until the unknown count is zero.
+- **Proving the old controller was an orchestrator, not a router.** A controlled power-off test (now its own [gotcha](../gotchas/power-off-test-the-old-controller.md)) turned a scary decommission into a small, known list of real work — early, before the plan was built around a worst case nobody had confirmed.
+- **Deferring true multi-stream on purpose.** Playing different sources in different rooms at once — the full multi-zone experience — was consciously postponed. The honest ceiling is the matrix's input count, not the number of endpoints, and real household demand looked like two or three room clusters, not N. The plan was to *measure* how often two sources were actually wanted before spending on hardware, and to add independent streams additively later. Deferring a feature you can add cleanly later is a legitimate decision, not a failure.
+
 ## What I'd do differently
 
 - **Build the inventory even more obsessively, and earlier.** Almost every nasty surprise traced back to a gap in what I thought I knew about the wiring. Time spent here pays back many times over.
