@@ -13,5 +13,11 @@ Each lesson follows the same shape — TL;DR, the situation, what bit me, the ge
 | Power-off test the old controller | The legacy hub is usually an orchestrator, not a signal router — prove it by pulling power and watching what goes dark, before you plan removal. | [Read](power-off-test-the-old-controller.md) |
 | One control authority per device | Two controllers or two grouping planes fighting over one device silently break volume and availability — give each device exactly one owner. | [Read](one-control-authority-per-device.md) |
 | Device status codes can lie | A device's protocol owns the meaning of its status codes — a `401` may mean "malformed command," not "wrong password." Verify against its own spec. | [Read](device-status-codes-can-lie.md) |
+| Power commands have a blast radius | One "power on" can wake zones you never named — scope power to the zone, and verify each zone independently before believing it's off. | [Read](power-commands-have-a-blast-radius.md) |
+| Ping is not identity | Something answering at an address isn't proof it's your device — identify by the service it speaks, and know that randomized MACs break reservations. | [Read](ping-is-not-identity.md) |
+| Stale state is not proof of silence | A source reporting "off" doesn't mean the room is quiet — ask the amplifier what it's playing, not the source. | [Read](stale-state-is-not-proof-of-silence.md) |
+| An input is a signal contract | An input specifies a level and an equalization curve, not just a connector shape — the wrong level isn't a volume problem you can trim away. | [Read](an-input-is-a-signal-contract.md) |
+| Exhaust the hardware before blaming software | Intermittent flapping for weeks is often failing hardware — eliminate the physical layer before building workarounds that outlive the bug. | [Read](exhaust-the-hardware-before-blaming-software.md) |
+| Deploys invalidate open clients | A reload silently no-ops already-open dashboards — check whether the action ever fired before you debug the action. | [Read](deploys-invalidate-open-clients.md) |
 
 More are coming as the migration behind this guide gets written up — and as others contribute theirs. Got a hard-won lesson? [Add yours](../../CONTRIBUTING.md).
