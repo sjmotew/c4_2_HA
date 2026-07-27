@@ -1,0 +1,8 @@
+theme: jekyll-theme-cayman
+title: C4 → HA Migration Field Guide
+description: >-
+  A practitioner's field guide to migrating a whole-home Control4 AV system
+  to Home Assistant — framework, build guide, and hard-won gotchas.
+show_downloads: false
+exclude:
+  - _config.yml
