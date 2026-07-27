@@ -14,12 +14,13 @@ Weigh it properly before you spend a dollar → [`decision/`](decision/).
 
 ## If you're committed to migrating
 
-The whole migration fits a repeatable 4-stage model. One line each:
+The whole migration fits a repeatable 5-stage model. One line each:
 
 1. **Discovery & Inventory** — map every device, signal path, and dependency before you touch anything.
 2. **Prove the hard part first** — find the riskiest integration and validate it in isolation; it sets your timeline.
 3. **Parallel operation** — run both systems at once and migrate zone-by-zone; the house never goes dark.
 4. **Cutover & decommission** — retire the old system only after the new one owns every zone and nobody noticed.
+5. **Operate & harden** — the half nobody warns you about: keeping it trustworthy once the old system is gone and it's all yours.
 
 The full model and the principles behind it → [`framework/`](framework/).
 

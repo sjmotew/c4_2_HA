@@ -1,6 +1,6 @@
 # Principles
 
-The 4-stage model tells you *what order* to do things in. These principles cut across all four stages — they're the rules that, once internalized, keep you out of the most common and most painful holes. Each one is stated as a short rule with the reasoning behind it, because a rule you understand is a rule you'll actually follow.
+The 5-stage model tells you *what order* to do things in. These principles cut across all five stages — they're the rules that, once internalized, keep you out of the most common and most painful holes. Each one is stated as a short rule with the reasoning behind it, because a rule you understand is a rule you'll actually follow.
 
 ## Automate against what's connected, not vendor labels
 

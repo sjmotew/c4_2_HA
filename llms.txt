@@ -10,7 +10,7 @@
 - [Should you leave Control4?](docs/decision/README.md): the honest case, the costs, and a fit check.
 
 ## Framework
-- [The 4-stage model](docs/framework/00-overview.md): discovery → prove the hard part → parallel operation → cutover.
+- [The 5-stage model](docs/framework/00-overview.md): discovery → prove the hard part → parallel operation → cutover → operate & harden.
 - [Principles](docs/framework/principles.md): cross-cutting rules for any migration.
 
 ## Build it in Home Assistant

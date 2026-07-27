@@ -4,7 +4,7 @@ A whole-home migration isn't one big task — it's a sequence designed to de-ris
 
 Start here:
 
-- [**The 4-stage model**](00-overview.md) — Discovery → prove the hard part → parallel operation → cutover. The goal, the question, and the exit criteria for each stage.
+- [**The 5-stage model**](00-overview.md) — Discovery → prove the hard part → parallel operation → cutover → operate. The goal and the question for every stage, plus the exit criteria for the four that end.
 - [**Principles**](principles.md) — The cross-cutting rules that hold across every house: automate against reality, idempotency or bust, one source of truth, and the rest.
 
 The stages, in depth:
@@ -13,5 +13,6 @@ The stages, in depth:
 - [Stage 2 — Prove the hard part first](02-prove-the-hard-part-first.md)
 - [Stage 3 — Parallel operation](03-parallel-operation.md)
 - [Stage 4 — Cutover & decommission](04-cutover-and-decommission.md)
+- [Stage 5 — Operate & harden](05-operate-and-harden.md)
 
 When something bites you mid-migration, the [gotchas](../gotchas/) are the field dressing.

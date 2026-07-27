@@ -1,6 +1,6 @@
-# The 4-stage migration model
+# The 5-stage migration model
 
-A whole-home migration looks overwhelming until you give it a shape. This is the shape: four stages, in order, each with a clear goal, a single question it answers, and an exit criterion that tells you when you're allowed to move on. Don't advance until the stage you're in is genuinely done. The order is the point.
+A whole-home migration looks overwhelming until you give it a shape. This is the shape: five stages, in order, each with a clear goal and a single question it answers. The first four carry an exit criterion that tells you when you're allowed to move on; don't advance until the stage you're in is genuinely done. The fifth has no exit criterion, because living with the system is not a thing you finish. The order is the point.
 
 ## Stage 1 — Discovery & Inventory
 
@@ -50,10 +50,24 @@ Decommissioning is the easy part if the first three stages were done honestly. C
 
 → [Cutover & decommission](04-cutover-and-decommission.md)
 
+## Stage 5 — Operate & harden
+
+**Goal:** Turn a working system into infrastructure the household can depend on without its builder present.
+
+**The question it answers:** *Does this still work when nobody is watching — and when it doesn't, does anyone find out?*
+
+Cutover isn't the finish line; it's the moment the safety net is gone and the new system becomes load-bearing. What follows is the unglamorous half: surviving restarts nobody scheduled, making partial failures announce themselves instead of reporting success, giving isolation to components that quietly became critical, and replacing hardware inside a system the house now depends on.
+
+It also includes the interface everyone else touches. That the system works from your laptop is irrelevant to the people who live there — the family-facing surface is a deliverable, not a nicety. The migration behind this guide spent roughly half its total effort in this stage, all of it after the old system was already gone.
+
+**Exit criterion:** *None — and that's deliberate. The first four end. This one doesn't; the goal stops being "done" and becomes "trustworthy."*
+
+→ [Operate & harden](05-operate-and-harden.md)
+
 ## Why this order
 
 Each stage exists to protect the next.
 
-**Discovery first** so you de-risk early, on paper, where mistakes are free. **Prove the hard part second** so the one thing that could sink the project is settled before you've invested in everything around it. **Parallel operation third** so you never break the house — the old system is always there to fall back to. **Cutover last** so you only remove your safety net once trust has been earned, zone by zone, over time.
+**Discovery first** so you de-risk early, on paper, where mistakes are free. **Prove the hard part second** so the one thing that could sink the project is settled before you've invested in everything around it. **Parallel operation third** so you never break the house — the old system is always there to fall back to. **Cutover fourth** so you only remove your safety net once trust has been earned, zone by zone, over time. **Operate and harden from then on**, because the trust earned getting there is not a milestone you pass; it's a state you maintain.
 
-De-risk early. Never break the house. Earn trust incrementally. Do it in this order and the scary project becomes a series of small, reversible, boring steps — which is exactly what you want.
+De-risk early. Never break the house. Earn trust incrementally. Then keep it. Do the first four in this order and the scary project becomes a series of small, reversible, boring steps — which is exactly what you want. Stay in the fifth and it stays that way.

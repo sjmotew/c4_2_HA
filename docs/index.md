@@ -10,7 +10,7 @@ A practitioner's field guide to migrating a whole-home Control4 AV system to Hom
 ## Map of the guide
 
 - [`decision/`](decision/) — Should you leave Control4 at all? Tradeoffs, what you're signing up for, and a readiness self-check.
-- [`framework/`](framework/) — The repeatable 4-stage migration model plus the cross-cutting principles that hold across every house.
+- [`framework/`](framework/) — The repeatable 5-stage migration model plus the cross-cutting principles that hold across every house.
 - [`building/`](building/) — Building it well in Home Assistant: integrations, Music Assistant, scripting, automations, and platform pitfalls — with small illustrative snippets.
 - [`gotchas/`](gotchas/) — A growing catalog of hard-won, generalized lessons: the failures, the rules they taught me, and how to apply them.
 - [`journey/`](journey/) — The actual arc of one migration, compressed — proof the framework came from doing, not theorizing.

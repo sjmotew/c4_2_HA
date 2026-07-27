@@ -18,7 +18,7 @@ There are two ways into this guide, depending on where you are:
 ## Map of the repo
 
 - [`docs/decision/`](docs/decision/) — Should you leave Control4 at all? Tradeoffs, what you're signing up for, and a readiness self-check.
-- [`docs/framework/`](docs/framework/) — The repeatable 4-stage migration model plus the cross-cutting principles that hold across every house.
+- [`docs/framework/`](docs/framework/) — The repeatable 5-stage migration model plus the cross-cutting principles that hold across every house.
 - [`docs/building/`](docs/building/) — Building it well in Home Assistant: integrations, Music Assistant, scripting, automations, and platform pitfalls — with small illustrative snippets.
 - [`docs/gotchas/`](docs/gotchas/) — A growing catalog of hard-won, generalized lessons: the failures, the rules they taught me, and how to apply them.
 - [`docs/journey/`](docs/journey/) — The actual arc of one migration, compressed — proof the framework came from doing, not theorizing.

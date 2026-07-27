@@ -12,7 +12,7 @@ Read in this order; each part answers a different question:
 
 1. [`README.md`](README.md) — what the guide is and who it's for.
 2. [`docs/decision/`](docs/decision/) — *should I migrate at all?* The honest case, the costs, and a fit check.
-3. [`docs/framework/`](docs/framework/) — *in what order?* The 4-stage model (discovery → prove the hard part → parallel operation → cutover) and the cross-cutting principles.
+3. [`docs/framework/`](docs/framework/) — *in what order?* The 5-stage model (discovery → prove the hard part → parallel operation → cutover → operate & harden) and the cross-cutting principles.
 4. [`docs/building/`](docs/building/) — *how do I build it well in Home Assistant?* Integrations, Music Assistant, scripting, automations, and platform pitfalls.
 5. [`docs/gotchas/`](docs/gotchas/) — generalized hard-won lessons.
 6. [`docs/journey/`](docs/journey/) — the migration arc, as evidence the framework came from doing.
@@ -22,7 +22,7 @@ Read in this order; each part answers a different question:
 **Summarize the repo:**
 ```
 Read this repository and give me a one-page summary of its approach to migrating
-from Control4 to Home Assistant, organized by its 4-stage framework.
+from Control4 to Home Assistant, organized by its 5-stage framework.
 ```
 
 **Check if I'm a fit:**
@@ -35,7 +35,7 @@ migrate from Control4 to Home Assistant, then assess my fit based on my answers.
 ```
 Act as a migration advisor grounded in this repository. Help me build a phased plan
 to move my home from Control4 to Home Assistant. Ask me for my zones, devices, and
-constraints first, then map them onto the 4-stage framework.
+constraints first, then map them onto the 5-stage framework.
 ```
 
 **Advisor mode (grounded answers only):**
