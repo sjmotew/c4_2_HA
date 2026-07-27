@@ -15,6 +15,8 @@ Unlike the rest of the guide, the pages here include small config snippets. They
 - [**Music Assistant**](music-assistant.md) — using one streaming engine as the backbone that fans out to every zone, instead of a different mechanism per service.
 - [**Scripting**](scripting.md) — composable, idempotent, name-based scripts that stay readable and don't fight your own taps.
 - [**Automations**](automations.md) — activity/state automations that enforce a single active source and never loop or double-toggle.
+- [**Reliability**](reliability.md) — making it work when you aren't there: cold-start reconciliation, availability pre-checks, visible degradation, and tiered recovery.
+- [**The family interface**](family-interface.md) — the wall tablet as a product: unattended boot, kiosk recovery, burn-in, and the silent no-op.
 - [**Pitfalls**](pitfalls.md) — cross-cutting Home Assistant platform gotchas that aren't tied to one topic.
 
 Everything here is the [principles](../framework/principles.md) applied in Home Assistant. When something bites you mid-build, the [migration gotchas](../gotchas/) are the field dressing.
