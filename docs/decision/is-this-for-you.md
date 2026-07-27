@@ -34,6 +34,8 @@ This is a separate question from your own, and it's the one people skip. The peo
 
 This is months of evenings, not a weekend. Be honest about what you actually have, not what you wish you had.
 
+Budget for roughly twice the work you'd estimate from the migration alone. Removing the old system is the midpoint, not the finish: about half the total effort in the migration behind this guide landed *after* decommission — reliability hardening, a hardware replacement, and the interface the rest of the household actually uses. See [Stage 5 — Operate & harden](../framework/05-operate-and-harden.md) for what that half consists of.
+
 - *I have steady, recurring time* → ideal; steady beats heroic.
 - *Only sporadic bursts* → workable if you migrate in small, self-contained zones that survive being left alone between sessions. Avoid leaving a zone half-done.
 - *Almost none* → wait until you do. A migration started and abandoned mid-stream is worse than not starting.

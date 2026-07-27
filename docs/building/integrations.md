@@ -61,6 +61,17 @@ Treat HDMI-CEC as a *helpful side effect*, never the primary mechanism — it ma
 
 Some integrations have no reconfigure flow — to re-point them you must delete and re-add. The trap: a stale registry entry left behind causes the re-added device to come back with a suffixed entity_id (`..._2`), silently breaking every script that referenced the original. Before re-adding, **purge the orphaned entities and devices**, then verify the id came back un-suffixed. (Migrating the integration's data directory, where it has one, preserves the underlying player IDs across the move.)
 
+## When the integration doesn't expose the setting
+
+Some device settings have no service call in any integration — input modes, per-source level trims, speaker channel assignments, zone-scoped power. They are real settings that matter to how the system sounds and behaves, and no amount of searching the integration's services will surface them. The device's own control protocol usually reaches them.
+
+Many AV devices expose two control paths at once: a **stateless request path** for one-off commands, and a **persistent socket protocol** that the integration typically holds open. Two things follow from that, and both are worth stating generally.
+
+- **A command being accepted is not the same as a command being applied.** A stateless control endpoint will happily return success with no response body, having done nothing you can verify. Always **read the value back** through a query before believing it. This is the same discipline as [device status codes can lie](../gotchas/device-status-codes-can-lie.md) — the response is a claim about the message, not about the device.
+- **Prefer the stateless path for configuration.** It doesn't compete with the integration that owns the device's persistent connection, so you can set a value without knocking the integration offline. Leave the socket to whichever layer you designated the owner.
+
+Where the device offers only the socket, open a short-lived connection for the query rather than leaving one open. And when a device's behavior is inexplicable at this level, diagnose down the stack before building around it — see [exhaust the hardware before blaming software](../gotchas/exhaust-the-hardware-before-blaming-software.md).
+
 ## Decouple long-lived services from the hub
 
 If a streaming engine or similar service runs *inside* your hub, their lifecycles are coupled — a hub restart or engine update takes both down together. Running it as its own standalone service decouples them, survives hub restarts independently, and tends to be the prerequisite for later scaling work.

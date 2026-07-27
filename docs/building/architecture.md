@@ -56,6 +56,15 @@ play_source:
 
 The room layer has its own tiny primitives — an idempotent `room_add_<room>` and `room_remove_<room>` per zone — that only touch that room's player and its boolean. Presets and reactive automations call those primitives; they never reach into the source layer to do it.
 
+## The room group is a model, not a side effect
+
+Rooms are not just targets you send commands to. **The set of rooms currently participating is itself state**, and like any state it needs exactly one owner — the room layer's booleans, not the streaming engine's internal group, not whatever a script happened to do last.
+
+Two properties make that model hold up:
+
+- **Add and remove are symmetric operations against that state.** `room_add_<room>` and `room_remove_<room>` are mirror images: each writes the room's boolean and performs the corresponding hardware call. If adding a room joins a group and stops what it was playing, removing it must undo both. An asymmetric pair leaves rooms that can be added but never cleanly left.
+- **Both reconcile afterwards rather than assuming success.** A join can fail, a device can be unreachable, an engine can return an error on an operation that in fact worked. Read back what the group actually contains and settle the difference, rather than trusting that the call did what it said. The [one control authority](../gotchas/one-control-authority-per-device.md) rule is what makes this possible at all — you cannot reconcile a group that two mechanisms are both editing.
+
 ## Observe is not the same as control
 
 Once you have a status display reading engine state, a subtle trap appears: **the engine can be telling the truth while a room is lying.** A now-playing card that reads the engine can correctly say "Service X is playing" while a particular room is actually playing a stale, ungrouped source — the report is right about the *engine* and wrong about the *room*.
@@ -63,6 +72,8 @@ Once you have a status display reading engine state, a subtle trap appears: **th
 The fix belongs in the **distribution layer**, not the reporting layer: when you add a room, both join it to the group *and* stop whatever it was independently playing. Don't try to patch a reconciliation problem by editing the sensor that merely observes it.
 
 **Why it holds:** observing state and controlling state are different jobs. A reporting layer that reads one entity will faithfully report that entity — making it "more accurate" can't fix a room that's genuinely in the wrong state. Reconcile reality in the layer that owns reality.
+
+The layered restatement: **a unified now-playing view mirrors the engine, not the room.** What is playing is a property of the source layer; which rooms hear it is a property of the room layer. Conflate them and you ship an interface that lies — showing "playing" in a room that never joined. Render them as two facts, and render the gap between them: a room that was skipped belongs on the screen. That is the visible-degradation pattern in [reliability](reliability.md), and it is the difference between an interface people trust and one they stop believing.
 
 ## Pitfalls
 

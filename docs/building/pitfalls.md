@@ -26,6 +26,18 @@ These are cross-cutting Home Assistant platform gotchas — the ones that aren't
 
 **The fix:** know which changes a reload covers and which need a restart. When a change "isn't taking" and the config looks right, **restart and re-verify** before you go debugging a non-problem.
 
+## Reloading breaks open clients
+
+**What bites you:** you reload after a deploy, then tap a control on a dashboard that was already open — and nothing happens. No error on screen, no log entry, and the script's last-triggered timestamp never moves. It is indistinguishable from a broken automation, so you start debugging code that is fine.
+
+**The fix:** make refreshing every open client the last step of the deploy, wall-mounted tablets first — they hold a session for days and nobody else will refresh them. And when a control "does nothing," **check the last-triggered timestamp before anything else**: if it never moved, the action was never invoked and the problem is the client. Full treatment: [deploys invalidate open clients](../gotchas/deploys-invalidate-open-clients.md).
+
+## Entity state can be arbitrarily stale
+
+**What bites you:** you build logic on a source device's state — "if the streaming box is off, the room is quiet" — and it is wrong for hours at a time. An integration reports what it last heard. CEC, native apps on the device, and physical remotes all change what a device is doing without telling Home Assistant, and nothing marks the state as old.
+
+**The fix:** don't treat a source entity's state as ground truth. Ask the component that actually drives the speakers — the amplifier zone's power and selected input — when the question is whether a room is in use, and treat the source entity as a hint. See [stale state is not proof of silence](../gotchas/stale-state-is-not-proof-of-silence.md).
+
 ## Include / merge surprises
 
 **What bites you:** directory-include and merge patterns combine files differently than you expect, or duplicate keys across files collide and one wins. The result is config that's present but not behaving.

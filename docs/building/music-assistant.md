@@ -59,6 +59,19 @@ Transferring a phone session onto a bridge player may load the track but leave i
 
 The friction people hate most is being thrown into a service's own app to pick something, then back to the home system to control it. Design content selection to live on **one surface** — an embedded browse card, or a scoped link straight into the engine's own web UI — rather than relying on cast handoff. A corollary: tapping a service button should **open its content surface, not silently resume whatever played last.** "Pick something" is the expected behavior; auto-resume surprises people.
 
+## When the media engine outgrows the hub
+
+Running the streaming engine as an add-on inside the automation platform is the right default, and it stays right for a long time. It is one thing to install, one thing to update, one thing to back up.
+
+What changes is not the engine — it is how much depends on it. Once every room's audio runs through it, co-location stops being convenient and becomes the risk: the engine's restarts are the platform's restarts, an update to either takes both down, and they contend for the same CPU and memory on the same host. A routine maintenance window turns into a household event. That is the moment described in [Stage 5](../framework/05-operate-and-harden.md#notice-when-a-component-became-load-bearing) — a component became load-bearing without changing at all.
+
+Moving it to its own container gives it an independent restart, its own resources, and a recovery path that doesn't take the house down with it. Two caveats worth planning for:
+
+- **Preserve the player identity every script targets.** The single fan-out target's id is referenced everywhere; if the move renames it, you are rewriting call sites instead of testing the migration. Migrating the engine's data directory usually carries the underlying player IDs across.
+- **Verify a cold boot, not a warm restart.** A standalone service starting at the same moment as its dependencies can lose a startup race that never appears when you restart it by hand. Power-cycle the host and watch what comes up in what order. See [reliability](reliability.md) for the reconciliation that makes the outcome survivable either way.
+
+Run the old instance and the new one in parallel only long enough to cut over — never point both at the same hardware, or you land squarely in [one control authority per device](../gotchas/one-control-authority-per-device.md).
+
 ## Pitfalls
 
 - **Using a track media_type for a station** (or a device's native play call that doesn't support stations at all). Wrong type → dead end.
