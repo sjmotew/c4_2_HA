@@ -28,6 +28,26 @@ A partial failure that reports success is worse than a clean failure, because a 
 
 Two versions of this bit hard here. One was an intermittent control bridge that dropped off the network for minutes at a time: any command landing in the gap never arrived, so the audio came up, the display stayed dark, and nothing anywhere recorded an error. The other was a wall-mounted control surface holding a days-old session after a configuration reload — taps registered on the screen and went nowhere, no error, no log entry. Both failures looked exactly like a person doing nothing. The rule that came out of them: **assert the outcome, not the command.** Confirm the thing you asked for actually happened, surface it when it didn't, and keep an independent availability signal on anything that can go quiet. The patterns live in [reliability](../building/reliability.md).
 
+## Prove it, don't assume it
+
+A reliability layer is the one thing you build that ordinary use never exercises. Everything else gets tested by the household simply living in the house; a guard is only tested by the fault, and the fault is rare by construction. So a guard that has never fired is not protection — it is a hypothesis with good syntax, and it can sit there looking healthy for years.
+
+Two habits close that gap, and both cost a scheduled evening rather than any new code.
+
+**Live-fire the guards.** Cut the network port, unplug the device, force the bad state, and listen to what the rest of the house does. There is no desk-side substitute, because the reason the guard exists is usually that some state reading was misleading — and a desk test asks that same reading, which will agree with you. Test at the timing that actually fails, too: the first live-fire here passed easily because the retry came minutes after the cut, long after the platform had noticed. The window the guard exists for is the first few seconds, while the state still reads healthy and stale, and that case had never been tested at all.
+
+**Verify by ear, against a prediction written first.** The system's purpose is sound in a room. "The script ran," "the trace is green," and "the entity says playing" are all statements about messages, not about rooms, and all three have been simultaneously true here while a room was silent. Write down what you expect and what would falsify it, *then* run it — otherwise you'll find a plausible story for whatever happens, because a system this complex offers one for every outcome.
+
+There is a third habit that only shows up once you start doing the first two seriously: ask what *else* would produce the result you just got. A test can match its prediction exactly and still be worthless, if a device's own default behavior explains the observation just as well. That is the whole of [proving it works](../building/verification.md), and it is the page to read before designing a physical test.
+
+Expect a share of this work to need a person in the room, and treat those as calendar events rather than open items. They compete with everyone's evening and they do not happen otherwise.
+
+## Names stop being true
+
+Nothing in this stage decays as quietly as naming. A device gets replaced and its name survives the swap because renaming it would mean touching fifty call sites. A room changes function. Two years in, the most-referenced entity in the config can be named after hardware sitting in a box in the garage — with nothing broken, no error anywhere, and every future reader starting from a false statement.
+
+The trigger to watch for is a name that needs a caveat when you say what it physically is. Audit on a schedule rather than on an incident, because there will not be an incident. And rename during a hardware swap, when you are already touching every call site, rather than promising to do it later. [Naming as infrastructure](../building/naming.md) has the convention and the mechanics; the cleanup pass here turned into its own multi-week project precisely because it was deferred.
+
 ## Notice when a component became load-bearing
 
 Components change status without telling you. Something added as a convenience gets adopted by every room, and then a routine restart of whatever machine it happens to share takes the entire house's audio down with it. It is the same component it always was. Its blast radius is not.

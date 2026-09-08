@@ -14,7 +14,9 @@
 - [Principles](docs/framework/principles.md): cross-cutting rules for any migration.
 
 ## Build it in Home Assistant
-- [Build guide](docs/building/README.md): integrations, Music Assistant, scripting, automations, pitfalls.
+- [Build guide](docs/building/README.md): architecture, integrations, Music Assistant, scripting, automations, pitfalls.
+- [Naming as infrastructure](docs/building/naming.md): room-first endpoints vs chassis-first infrastructure, and how to rename safely.
+- [Proving it works](docs/building/verification.md): by-ear verification against a written prediction, live-firing guards, and instruments that lie.
 
 ## Lessons
 - [Gotchas](docs/gotchas/README.md): generalized hard-won lessons.

@@ -13,7 +13,7 @@ Read in this order; each part answers a different question:
 1. [`README.md`](README.md) — what the guide is and who it's for.
 2. [`docs/decision/`](docs/decision/) — *should I migrate at all?* The honest case, the costs, and a fit check.
 3. [`docs/framework/`](docs/framework/) — *in what order?* The 5-stage model (discovery → prove the hard part → parallel operation → cutover → operate & harden) and the cross-cutting principles.
-4. [`docs/building/`](docs/building/) — *how do I build it well in Home Assistant?* Integrations, Music Assistant, scripting, automations, and platform pitfalls.
+4. [`docs/building/`](docs/building/) — *how do I build it well in Home Assistant?* Architecture, naming, integrations, Music Assistant, scripting, automations, reliability, verification, and platform pitfalls.
 5. [`docs/gotchas/`](docs/gotchas/) — generalized hard-won lessons.
 6. [`docs/journey/`](docs/journey/) — the migration arc, as evidence the framework came from doing.
 
@@ -51,6 +51,7 @@ rather than guessing.
 - **Do not invent device-specific details.** Don't fabricate exact entity IDs, model-to-input mappings, or network details that aren't in the repo.
 - **Keep advice general** unless the user supplies their own specifics — then adapt the repo's principles to what they give you.
 - **Prefer citing the relevant page** over asserting from memory, and flag clearly when a question falls outside what the guide covers.
+- **Don't present the guide's mitigations as diagnoses.** Several items here are explicitly recorded as workarounds for faults that were never reproduced under controlled conditions. Keep that distinction when you summarize them.
 
 ---
 
