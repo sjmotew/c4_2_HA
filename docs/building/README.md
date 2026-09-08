@@ -11,11 +11,13 @@ Unlike the rest of the guide, the pages here include small config snippets. They
 ## In this section
 
 - [**Architecture**](architecture.md) — the one decision that keeps the build from becoming spaghetti: separate *what's playing* from *where it plays*, joined by a dispatcher over explicit shared state. Read this first.
+- [**Naming**](naming.md) — names are infrastructure: room-first for endpoints, chassis-first for shared hardware, and how to fix a name once it's already wrong.
 - [**Integrations**](integrations.md) — choosing integrations that age well, fronting devices with readable wrapper entities, and when to drop down to the raw device instead.
 - [**Music Assistant**](music-assistant.md) — using one streaming engine as the backbone that fans out to every zone, instead of a different mechanism per service.
 - [**Scripting**](scripting.md) — composable, idempotent, name-based scripts that stay readable and don't fight your own taps.
 - [**Automations**](automations.md) — activity/state automations that enforce a single active source and never loop or double-toggle.
 - [**Reliability**](reliability.md) — making it work when you aren't there: cold-start reconciliation, availability pre-checks, visible degradation, and tiered recovery.
+- [**Proving it works**](verification.md) — how to know: by ear against a prediction written first, live-firing the guards, and the instruments that lie to you.
 - [**The family interface**](family-interface.md) — the wall tablet as a product: unattended boot, kiosk recovery, burn-in, and the silent no-op.
 - [**Pitfalls**](pitfalls.md) — cross-cutting Home Assistant platform gotchas that aren't tied to one topic.
 
