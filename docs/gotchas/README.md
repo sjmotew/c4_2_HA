@@ -19,5 +19,11 @@ Each lesson follows the same shape — TL;DR, the situation, what bit me, the ge
 | An input is a signal contract | An input specifies a level and an equalization curve, not just a connector shape — the wrong level isn't a volume problem you can trim away. | [Read](an-input-is-a-signal-contract.md) |
 | Exhaust the hardware before blaming software | Intermittent flapping for weeks is often failing hardware — eliminate the physical layer before building workarounds that outlive the bug. | [Read](exhaust-the-hardware-before-blaming-software.md) |
 | Deploys invalidate open clients | A reload silently no-ops already-open dashboards — check whether the action ever fired before you debug the action. | [Read](deploys-invalidate-open-clients.md) |
+| Names outlive the hardware they describe | Entity names quietly stop describing reality when devices get replaced — nothing breaks, and every future reader starts from a false statement. | [Read](names-outlive-the-hardware.md) |
+| Failures don't always reach the caller | A script that deliberately aborts can still return "success" — build the failure contract from state plus a notification, not a return value. | [Read](failures-dont-always-reach-the-caller.md) |
+| Deployed is not proven | A reliability guard that has never fired is a hypothesis — live-fire it, at the timing that actually fails, not the one that's convenient. | [Read](deployed-is-not-proven.md) |
+| A mitigation is not a diagnosis | A fix that reliably restores the right behavior proves the recovery works, not that you know the cause — label the guess as a guess. | [Read](a-mitigation-is-not-a-diagnosis.md) |
+| Ask what else explains it | A test that passes exactly as predicted can still be worthless if a second mechanism produces the same observation — change the variable. | [Read](ask-what-else-explains-it.md) |
+| Your tools can't see your whole config | An audit tool built for the default layout will confidently report your working system as dead — sanity-check it against something you know. | [Read](your-tools-cannot-see-your-config.md) |
 
 More are coming as the migration behind this guide gets written up — and as others contribute theirs. Got a hard-won lesson? [Add yours](../../CONTRIBUTING.md).
